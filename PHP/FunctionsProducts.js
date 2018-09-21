@@ -2,28 +2,38 @@
 
 $(document).ready(function(){
 	
-	// Lift card and show stats on Mouseover
-	$('.product-card').hover(function(){
-			$(this).addClass('animate');
-			$('div.carouselNext, div.carouselPrev').addClass('visible');			
-		 }, function(){
-			$(this).removeClass('animate');			
-			$('div.carouselNext, div.carouselPrev').removeClass('visible');
-	});	
+	
+	
+$('.product-card').hover(function(){
+	var prod= $(this).attr('id');
+	var prodString = prod.toString();
+	var id = prodString.substring(4,5);
+	console.log(id);
+	$('#prodTitle',this).toggle();
+	$('#prodPrice',this).toggle();
+	$(this).addClass('animate');
+	
+	}, function(){
+	$(this).removeClass('animate');
+	$('#prodTitle',this).toggle();
+	$('#prodPrice',this).toggle();
+		
+	});
 	
 	
 $('#imgControl').change(function(){
 	var color= $('#imgControl').val();
-	console.log(color);
+	
 	$.ajax({
 		url: 'colorSelect.php',
 		type: 'post',
+		dataType: 'json',
 		data:{'color':color},
 		success: function(data){
-
-		console.log(data);
 			
-			$('#prodSlides').attr('src',data);
+			$('#prodSlides').attr('src',data.path);
+			$('#prodForm').attr('action', "cart.php?action=add&id=" + data.colorId);
+			
 			
 			
 		}
@@ -32,31 +42,14 @@ $('#imgControl').change(function(){
 		
 	});
 	
+	
+$('#prodForm').submit(function (evt) {
+    evt.preventDefault();
+    window.history.back();
+});
+	
 	});
 	
 	
 	
 	
-
-
-/*
-
-
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("prodSlides");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-*/

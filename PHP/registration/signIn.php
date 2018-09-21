@@ -12,6 +12,11 @@
 
 </head>
 <body>
+<div id="wrapper">
+<div id="topMess">
+<p> Disclaimer: This is not yet a fully functioning or finished site,
+ Merely a test before bringing to market</p>
+ </div>
 <header>
 
 <div class="headDiv">
@@ -34,7 +39,7 @@
 	class="dropbtn">Sign In</a>
 	
 	 <ul class="dropDown-content">
-	  <li><a href="http://localhost/PHP/registration/register.php">Register</a></li>
+	  <li><a href="../registration/register.php">Register</a></li>
 	  </ul>
 	<?phpendif?>
 	
@@ -57,6 +62,7 @@
 </div>
 
 </header>
+<div id="content">
 
 <div class ="header">
 <h2>Sign in!</h2>
@@ -89,11 +95,11 @@
 
 
 
-
+</div>
 <div id="footer">
 <p> This yo favorite footer</p>
 </div>
-	
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="FunctionsProducts.js"></script>

@@ -22,11 +22,8 @@
 try {
 
 
-    $ConnectScr = new ConnectScr();
-  
+    $ConnectScr = new ConnectScr(); 
     $conn = $ConnectScr->dbConn();
-	
-  
     $varname = $_GET['varname'];
 	
  
@@ -35,14 +32,19 @@ try {
     $query->execute();
     $result = $query->fetch(PDO::FETCH_ASSOC);
 	
+	
+	
     $sql2="SELECT path FROM pictureTable WHERE id = '$varname'";
 	$query2 = $conn->prepare($sql2);
 	$query2->execute();
 	$path= $query2->fetch(PDO::FETCH_ASSOC);
 	
+	
 	$default = $path['path'];
 	$pre ="http://localhost/PHP/images/";
 	$data = $pre.$default;
+	
+	
 	
 	$id = $result['id'];
 	$title = $result['title'];
@@ -82,6 +84,11 @@ try {
 
 </head>
 <body>
+<div id="wrapper">
+<div id="topMess">
+<p> Disclaimer: This is not yet a fully functioning or finished site,
+ Merely a test before bringing to market</p>
+ </div>
 <header>
 
 <div class="headDiv">
@@ -127,6 +134,7 @@ try {
 </div>
 
 </header>
+<div id="content">
 
 
 <div class="mainContainer">
@@ -150,6 +158,8 @@ try {
 <p>Color:
 
 
+<form method="post"
+action="colorSelect.php">
 
 
 <select class="selectBox" id="imgControl" name="image">
@@ -157,26 +167,59 @@ try {
 $length = count($dropColor);
 for($i=0; $i<$length; $i++){
 	?>
-	<option value = "<?php echo $dropColor[$i]['color'];?>">
+	<option value = "<?php echo $dropColor[$i]['color'];?>,<?php echo $dropColor[$i]['id'];?>">
 	<?php echo $dropColor[$i]['color'];?></option>
+	
 	<?php
+	
 }
 
 ?>
 
  </select>
+ 
+</form>
 
 </p>
-<form method="post"
- action="cart.php?action=add&id=<?php echo $id; ?>">
 
-<div>
+
+
+
+<!--
+$result_explode = explode(',', $color);
+	var_dump($result_explode[0]);
+	var_dump($result_explode[1]);
+
+-->
+
+<?php if(isset($_SESSION['username'])) : ?>
+<form method="post" id="prodForm"
+ action="cart.php?action=add&id=<?php echo $id; ?>">
+<?php
+$rand = rand();
+$_SESSION['rand'] = $rand;
+
+?>
+ 
+<div id="addButt">
   <input type="text" name="quantity" value="1" size="2" /><input
                     type="submit" value="Add to cart"
                     class="btnAddAction" />
 
 </div>
 </form>
+<?phpendif?>
+	
+	
+	<?php elseif(!isset($_SESSION['username'])) : ?>
+<div id = "addButt">
+  <input type="text" name="quantity" value="1" size="2" /><input
+                    type="submit" value="Please Sign in"
+                    class="btnAddAction" />
+
+</div>
+<?php endif?>
+
 </div>
 </div>
 
@@ -199,14 +242,15 @@ for($i=0; $i<$length; $i++){
 
 
 
-
+</div>
 <div id="footer">
 <p> This yo favorite footer</p>
 </div>
-	
 
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="FunctionsProducts.js"></script>
+<script type="text/javascript" src="FunctionsHome.js"></script>
 </body>
 
 </html>

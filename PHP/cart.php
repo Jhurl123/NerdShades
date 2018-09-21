@@ -14,7 +14,7 @@
 include("ShoppingCart.php");
 
 
-
+ 
 
 //Go back to this if memberid is a problem
 
@@ -71,7 +71,7 @@ if(!empty($_GET["action"])) {
 
 
   
-  
+
   
   
   
@@ -87,9 +87,16 @@ if(!empty($_GET["action"])) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"type ="text/css" href="glassStyle.css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-
 </head>
+
+
+
 <body>
+<div id = "wrapper">
+<div id="topMess">
+<p> Disclaimer: This is not yet a fully functioning or finished site,
+ Merely a test before bringing to market</p>
+ </div>
 <header>
 
 <div class="headDiv">
@@ -113,14 +120,14 @@ if(!empty($_GET["action"])) {
 	class="dropbtn">Sign In</a>
 	
 	 <ul class="dropDown-content">
-	  <li><a href="http://localhost/PHP/registration/register.php">Register</a></li>
+	  <li><a href="../PHP/registration/register.php">Register</a></li>
 	  </ul>
 	<?phpendif?>
 	
 	
 	<?php elseif(isset($_SESSION['username'])) : ?>
 	    <a href ="javascript:void(0)" 
-	    class="dropbtn"><?php   echo "Hello " . $_SESSION['firstName']; ?></a>
+	    class="dropbtn"><?php   echo "Hello " . $_SESSION['firstName'] . "!"; ?></a>
 	 	 <ul class="dropDown-content">
 	  <li><a href="http://localhost/PHP/cart.php">Cart</a></li>
 	  <li><a href="#">My Account</a></li>
@@ -131,10 +138,11 @@ if(!empty($_GET["action"])) {
 	  </li>
 </ul>
 </div>
-</div>
-
 </header>
 
+
+
+<div class="cartPage" id = "content">
 <div id="shopping-cart">
    <div class="txt-heading">
       <div class="txt-heading-label">Shopping Cart</div>
@@ -205,30 +213,44 @@ if(!empty($cartItem)) {
    ?>
    
 </div>
+
+<?php if(isset($_SESSION['username'])) : ?>
+<form method="post" id="prodForm"
+ action="">
+
+ 
+<div id="addButt">
+  <input
+                    type="submit" value="Check out"
+                    class="btnAddAction" />
+
+</div>
+</form>
+<?phpendif?>
+	
+	
+	<?php elseif(!isset($_SESSION['username'])) : ?>
+<div id = "addButt">
+  <input type="text" name="quantity" value="1" size="2" /><input
+                    type="submit" value="Please Sign in"
+                    class="btnAddAction" />
+
+</div>
+<?php endif?>
 			
 	
-	
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--
+</div>
 <div id="footer">
 <p> This yo favorite footer</p>
-</div>-->
+</div>
+</div>
 	
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="FunctionsProducts.js"></script>
+<script type="text/javascript" src="FunctionsHome.js"></script>
 </body>
 
 </html>

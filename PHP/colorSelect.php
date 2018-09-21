@@ -9,21 +9,33 @@ try {
 		
 	
 
-  
+   
     $ConnectScr = new ConnectScr();
 	$conn = $ConnectScr->dbconn();
 
 if(isset($_POST['color'])){
 	
 	$color=$_POST['color'];
+
 	
-	$sql="SELECT id FROM productTable WHERE color ='$color'";
+	
+	$result_explode = explode(',', $color);
+
+
+	
+	$newColor = $result_explode[0];
+	$colorId = $result_explode[1];
+	
+	
+	$sql="SELECT id FROM productTable WHERE color ='$newColor'";
 	$query = $conn->prepare($sql);
 	$query->execute();
     $result1 = $query->fetch(PDO::FETCH_ASSOC);
     $newId = $result1['id'];
-	//echo $newId;
+	
 
+	
+	
 	$sql2="SELECT path FROM pictureTable WHERE id = $newId";
 	$query2 = $conn->prepare($sql2);
 	$query2->execute();
@@ -35,7 +47,9 @@ if(isset($_POST['color'])){
 	
 	
 	
-	echo $data;
+	echo json_encode(
+	array("path" => $data,
+	      "colorId" => $colorId));
 }
 }
 	

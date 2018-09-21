@@ -27,6 +27,13 @@
 
 </head>
 <body>
+<div id="wrapper">
+
+<div id="topMess">
+<p> Disclaimer: This is not yet a fully functioning or finished site,
+ Merely a test before bringing to market</p>
+ </div>
+ 
 <header>
 
 <div class="headDiv">
@@ -72,7 +79,7 @@
 
 </div>
 </header>
-
+<div id="content">
 <div class = "row">
 
 
@@ -104,10 +111,10 @@
 </div>
 
 </div>
-
 </div>
 <div id="footer">
 <p> This yo favorite footer</p>
+</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="FunctionsHome.js"></script>

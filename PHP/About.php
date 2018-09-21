@@ -19,9 +19,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"type ="text/css" href="glassStyle.css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-
 </head>
+
+
 <body>
+<div id = "wrapper">
+<div id="topMess">
+<p> Disclaimer: This is not yet a fully functioning or finished site,
+ Merely a test before bringing to market</p>
+ </div>
 <header>
 
 <div class="headDiv">
@@ -66,12 +72,13 @@
 
 
 </div>
-</div>
+
 
 </header>
+<div id="content">
 
 
-<h1 class="productHead">About Us:</h1>
+<h1 id="aboutHead">About Us:</h1>
 
 
 <div class="imgRow">
@@ -83,7 +90,7 @@
 <img src="images/aboutSample2.jpg">
 </div>
 </div>
-<div>
+
 
 
 
@@ -110,27 +117,18 @@ buy a pair and get safe. </p>
    -The Crew at Nerd Shades</p>
 
 
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 <div id="footer">
 <p> This yo favorite footer</p>
 </div>
-	
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="FunctionsProducts.js"></script>
+<script type="text/javascript" src="FunctionsHome.js"></script>
 </body>
 
 </html>

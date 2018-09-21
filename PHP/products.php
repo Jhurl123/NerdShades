@@ -23,6 +23,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<div id="wrapper">
+<div id="topMess">
+<p> Disclaimer: This is not yet a fully functioning or finished site,
+ Merely a test before bringing to market</p>
+ </div>
 <header>
 
 <div class="headDiv">
@@ -69,6 +74,7 @@
 </div>
 </header>
 
+<div id="content">
 <h1 class="productHead">Products</h1>
 
 <div class = "grid-wrapper">
@@ -76,7 +82,7 @@
 <a href="productTemplate.php?varname=70300">
 <div id="make-3D-space">
 
-    <div class="product-card">
+    <div class="product-card"id ="prod1">
 	<?php $getID="70300";
 	include('productScr.php');
 	include('imageScr.php');
@@ -85,14 +91,13 @@
 	$answer = getProductTable($getID);
 	$pathx = getImageTable($getID);
     $file = $pathx['path'];
-
+     
 				?>
 	
-        <div id="product-front">
+	<div id="product-front">
         	<div class="shadow"></div>
             <?php echo '<img src="'.$path.$file.'">'; ?>
             <div class="image_overlay"></div>
-            <div id="view_details">View details</div>
             <div class="stats">        	
                 <div class="stats-container">
                     <span class="product_price"><?php echo "$" . bcdiv($answer['price'],1,0);?></span>
@@ -114,7 +119,10 @@
                 </div>                         
             </div>
         </div>
-</div>		
+		<p id="prodTitle"><?php echo $answer['title']; ?></p>		
+		<p id="prodPrice"><?php echo "$" . bcdiv($answer['price'],1,0);?></p>
+</div>
+
     </div>	
 </a>
 </div>
@@ -124,7 +132,7 @@
 <div class="grid-number">
 <a href="productTemplate.php?varname=70400">
 <div id="make-3D-space">
-    <div class="product-card">
+    <div class="product-card" id ="prod2">
 	
     <?php $getID="70400";
 	     $path = "http://localhost/PHP/images/";
@@ -136,7 +144,6 @@
         	<div class="shadow"></div>
            <?php echo '<img src="'.$path.$file.'">'; ?>
             <div class="image_overlay"></div>
-            <div id="view_details">View details</div>
             <div class="stats">        	
                 <div class="stats-container">
                     <span class="product_price"><?php echo "$" . bcdiv($answer['price'],1,0);?></span>
@@ -158,6 +165,8 @@
                 </div>                         
             </div>
         </div>
+		<p id="prodTitle"><?php echo $answer['title']; ?></p>		
+		<p id="prodPrice"><?php echo "$" . bcdiv($answer['price'],1,0);?></p>
 </div>		
     </div>	
 </a>
@@ -168,7 +177,7 @@
 <div class="grid-number">
 <a href="productTemplate.php?varname=70500">
 <div id="make-3D-space">
-    <div class="product-card">
+    <div class="product-card" id ="prod3">
 	
 	<?php $getID="70500";
 		 $answer = getProductTable($getID);
@@ -179,8 +188,7 @@
         	<div class="shadow"></div>
            <?php echo '<img src="'.$path.$file.'">'; ?>
             <div class="image_overlay"></div>
-            <div id="view_details">View details</div>
-            <div class="stats">        	
+               <div class="stats">        	
                 <div class="stats-container">
                     <span class="product_price"><?php echo "$" . bcdiv($answer['price'],1,0);?></span>
                     <span class="product_name">
@@ -201,6 +209,8 @@
                 </div>                         
             </div>
         </div>
+		<p id="prodTitle"><?php echo $answer['title']; ?></p>		
+		<p id="prodPrice"><?php echo "$" . bcdiv($answer['price'],1,0);?></p>
 </div>		
     </div>	
 </a>
@@ -212,7 +222,7 @@
 <a href="productTemplate.php?varname=70600">
 <div id="make-3D-space">
 
-    <div class="product-card">
+    <div class="product-card" id ="prod4">
 	
 	<?php $getID="70600";
 		$answer = getProductTable($getID);
@@ -224,7 +234,6 @@
         	<div class="shadow"></div>
            <?php echo '<img src="'.$path.$file.'">'; ?>
             <div class="image_overlay"></div>
-            <div id="view_details">View details</div>
             <div class="stats">        	
                 <div class="stats-container">
                     <span class="product_price"><?php echo "$" . bcdiv($answer['price'],1,0);?></span>
@@ -246,6 +255,8 @@
                 </div>                         
             </div>
         </div>
+		<p id="prodTitle"><?php echo $answer['title']; ?></p>		
+		<p id="prodPrice"><?php echo "$" . bcdiv($answer['price'],1,0);?></p>
 </div>		
     </div>	
 </a>
@@ -256,7 +267,7 @@
 <div class="grid-number">
 <a href="productTemplate.php?varname=70700">
 <div id="make-3D-space">
-    <div class="product-card">
+    <div class="product-card" id ="prod5">
 	
 	<?php $getID="70700";
 		 $answer = getProductTable($getID);
@@ -267,7 +278,6 @@
         	<div class="shadow"></div>
             <?php echo '<img src="'.$path.$file.'">'; ?>
             <div class="image_overlay"></div>
-            <div id="view_details">View details</div>
             <div class="stats">        	
                 <div class="stats-container">
                     <span class="product_price"><?php echo "$" . bcdiv($answer['price'],1,0);?></span>
@@ -289,6 +299,8 @@
                 </div>                         
             </div>
         </div>
+		<p id="prodTitle"><?php echo $answer['title']; ?></p>		
+		<p id="prodPrice"><?php echo "$" . bcdiv($answer['price'],1,0);?></p>
 </div>		
     </div>	
 </a>
@@ -298,7 +310,7 @@
 <div class="grid-number">
 <a href="productTemplate.php?varname=70800">
 <div id="make-3D-space">
-    <div class="product-card">
+    <div class="product-card" id ="prod6">
 	
 	<?php $getID="70800";
 		  $answer = getProductTable($getID);
@@ -309,7 +321,7 @@
         	<div class="shadow"></div>
             <?php echo '<img src="'.$path.$file.'">'; ?>
             <div class="image_overlay"></div>
-            <div id="view_details">View details</div>
+            
             <div class="stats">        	
                 <div class="stats-container">
                     <span class="product_price"><?php echo "$" . bcdiv($answer['price'],1,0);?></span>
@@ -331,6 +343,8 @@
                 </div>                         
             </div>
         </div>
+		<p id="prodTitle"><?php echo $answer['title']; ?></p>		
+		<p id="prodPrice"><?php echo "$" . bcdiv($answer['price'],1,0);?></p>
 </div>		
     </div>	
 </a>
@@ -339,15 +353,17 @@
 
 </div>
 
-
+</div>
 
 <div id="footer">
 <p> This yo favorite footer</p>
+</div>
 </div>
 	
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="FunctionsProducts.js"></script>
+<script type="text/javascript" src="FunctionsHome.js"></script>
 </body>
 
 </html>
