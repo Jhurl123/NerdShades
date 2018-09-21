@@ -1,6 +1,6 @@
 <?php
 
-include("connectScr.php");
+include("../connectScr.php");
 
  $ConnectScr = new ConnectScr();
   

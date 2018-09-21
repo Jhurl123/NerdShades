@@ -1,5 +1,5 @@
 
-
+if (document.getElementById("mainImage") !== null) {
 var slideIndex = 0;
 showSlides();
 var slides;
@@ -38,6 +38,7 @@ function currentSlide(index) {
    
     }
 
+
 function showSlides() {
     var i;
     slides = document.getElementsByClassName("mySlides");
@@ -59,3 +60,17 @@ function showSlides() {
    
 }
 
+
+}
+$(document).ready(function() {
+	
+$("#topMess").delay('2000').slideToggle('slow');
+$("#topMess").delay('10000').slideToggle('slow');
+$("topMess").css("display: none");
+
+
+
+
+
+
+});
