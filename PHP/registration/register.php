@@ -7,6 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"type ="text/css" href="../../PHP/glassStyle.css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <title> Register to join Nerd Shades!</title>
 
 </head>
@@ -25,39 +27,71 @@
 <span class = "borderLine">
 
 </span>
-<div class= "navDiv">
-<ul id="nav">
-    <li> <a href="../phpTest.php">Home</a></li>
-	<li> <a href="../products.php">Products</a></li>
-    <li> <a href="../About.php">About Us</a></li>		
-    <li class="dropDown"> 
+<div class= "Navbar">
+
+<div id ="titleText" class="NavbarLink NavbarLink-brand">
+Nerd Shades
+</div>
+
+<div class ="NavbarLink NavbarLink-toggle">
+ <i class="fas fa-bars"></i>
+</div>
+
+
+<nav class="NavbarItems">
+   <div class="NavbarLink">
+    <a href="../PHP/phpTest.php">Home</a>
+   </div>
+
+   <div class="NavbarLink">
+	 <a href="../PHP/products.php">Products</a>
+   </div>
+   
+    <div class="NavbarLink">
+     <a href="../PHP/About.php">About Us</a>
+    </div>
 	
 	
 	<?php if(!isset($_SESSION['username'])) : ?>
-	<a href ="signIn.php"
-	class="dropbtn">Sign In</a>
+	<li class="dropDown">
+	<div class = "NavbarLink">
+	 <a href ="../PHP/registration/signIn.php"
+	    class="dropbtn">Sign In</a>
+	</div>
+	
 	
 	 <ul class="dropDown-content">
 	  <li><a href="http://localhost/PHP/registration/register.php">Register</a></li>
 	  </ul>
+	  </li>
+	  
 	<?phpendif?>
 	
 	
 	<?php elseif(isset($_SESSION['username'])) : ?>
+	<li class="dropDown">
+	  <div class = "NavbarLink">
 	    <a href ="javascript:void(0)" 
-	    class="dropbtn"><?php   echo "Hello " . $_SESSION['firstName']; ?></a>
+	       class="dropbtn"><?php   echo "Hello " . $_SESSION['firstName'] . "!"; ?></a>
+	 </div>
 	 	 <ul class="dropDown-content">
 	  <li><a href="http://localhost/PHP/cart.php">Cart</a></li>
-	  <li><a href="#">My Account</a></li>
 	  <li><a href="#">Contact Us</a></li>
 	  <li><a href="phpTest.php?logout='1'">Log Out</a></li>
 	  </ul>
-	  <?php endif ?>
 	  </li>
-</ul>
+	  <?php endif ?>
+	  
 
 
+</nav>
 
+<nav class="NavbarItems NavbarItems-right">
+
+<div class="NavbarLink">
+
+</div>
+</nav>
 </div>
 </header>
 <div id="content">
@@ -116,7 +150,18 @@
   
 </div>
 <div id="footer">
-<p> This yo favorite footer</p>
+<p class ="footParagraph"><a href="phpTest.php">Home</a></p>
+<br>
+<p class ="footParagraph"><a href="products.php">Products</a></p>
+<br>
+<p class ="footParagraph"><a href="About.php">About</a></p>
+<br>
+<p class ="footParagraph"><a href="Contact.php">Contact Us</a></p>
+
+
+<p class="disclaimer"> &#169 Nerd Shades - Nerd Shades does not own or sell Costa brand merchandise,
+ product images are merely used as displays for website for portfolio </p>
+
 </div>
 	
 </div>

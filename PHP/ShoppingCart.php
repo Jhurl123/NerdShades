@@ -73,7 +73,8 @@ class ShoppingCart
 		  $query2->bindParam(2, $Id, PDO::PARAM_INT);
 		  $query2->execute();
 		  $cartResult = $query2->fetchAll(PDO::FETCH_ASSOC);
-		  
+		  		   
+		
 		  return $cartResult;
 		 
 	 }
@@ -90,6 +91,7 @@ class ShoppingCart
 		  $query2->bindParam(3, $Id, PDO::PARAM_INT);
 		  
 		   $query2->execute();
+
 		
 	 }
 	 

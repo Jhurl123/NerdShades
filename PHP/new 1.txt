@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<style> 
+button{
+    transform-style: preserve-3d;
+	}
+	
+button:after {
+
+    top: -100%;
+    left: 0px;
+    width: 100%;
+    background:#3a9999;
+    border-radius: 5px;
+    content:'Flipped';
+    transform-origin: left bottom;
+    transition: rotate(90deg);
+    }
+	
+button:hover{
+    transform-origin: center bottom;
+    transform: rotateX(-90deg) translate(100%);
+}
+</head>
+<body>
+
+<button class="button">button</button>
+
+
+</body>
+</html>
